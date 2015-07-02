@@ -1,0 +1,23 @@
+{
+  "name": "post-save",
+  "version": "1.0.0",
+  "description": "save a post",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/battlemidget/post-save.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/battlemidget/post-save/issues"
+  },
+  "homepage": "https://github.com/battlemidget/post-save#readme",
+  "dependencies": {
+    "bluebird": "^2.9.30",
+    "fs-extra-promise": "^0.1.3"
+  }
+}
