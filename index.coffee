@@ -1,13 +1,12 @@
-Promise = require('bluebird')
 fs = require('fs-extra-promise')
+hb = require('handlebars')
 
-module.exports.singles = (outputDir, posts) ->
-  for post in posts
-    outFile = "#{outputDir}/#{post.permalink}/index.html"
-    fs.outputFileSync(outFile, post)
-  return Promise.all(posts)
+module.exports.single = (outputDir, template, post) ->
+  compiled = hb.compile(template)
+  outFile = "#{outputDir}/#{post.permalink}/index.html"
+  return fs.outputFile(outFile, compiled(post))
 
-module.exports.feeds = (outputDir, feedFile, posts) ->
+module.exports.collection = (outputDir, template, feedFile, posts) ->
+  compiled = hb.compile(template)
   outFile = "#{outputDir}/#{feedFile}"
-  fs.outputFileSync(outFile, posts)
-  return Promise.all(posts)
+  return fs.outputFile(outFile, compiled(posts))
