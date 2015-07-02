@@ -1,5 +1,8 @@
+Promise = require('bluebird')
 fs = require('fs-extra-promise')
 
-module.exports = (outputDir, post) ->
-  outFile = "#{outputDir}/#{post.permalink}/index.html"
-  return fs.outputFile(outFile, post)
+module.exports = (outputDir, posts) ->
+  for post in posts
+    outFile = "#{outputDir}/#{post.permalink}/index.html"
+    fs.outputFileSync(outFile, post)
+  return Promise.all(posts)
