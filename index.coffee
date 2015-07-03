@@ -1,6 +1,7 @@
 fs = require('fs-extra-promise')
 hb = require('handlebars')
 
+
 module.exports.single = (outputDir, template, post) ->
   compiled = hb.compile(template)
   outFile = "#{outputDir}/#{post.permalink}/index.html"
